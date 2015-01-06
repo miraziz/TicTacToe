@@ -2,6 +2,7 @@ package com.miraziz.www.tictactoe;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +27,8 @@ public class TicTacToeActivity extends ActionBarActivity {
         buttons[6] = (Button) findViewById(R.id.b6);
         buttons[7] = (Button) findViewById(R.id.b7);
         buttons[8] = (Button) findViewById(R.id.b8);
+
+        Log.v("DIVYA", "DIVYA AND KAVYA ARE ONE");
 
     }
 
