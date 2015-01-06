@@ -28,8 +28,6 @@ public class TicTacToeActivity extends ActionBarActivity {
         buttons[7] = (Button) findViewById(R.id.b7);
         buttons[8] = (Button) findViewById(R.id.b8);
 
-        Log.v("DIVYA", "DIVYA AND KAVYA ARE ONE");
-
     }
 
     // function to start game
