@@ -1,5 +1,7 @@
+
 package com.miraziz.www.tictactoe;
 
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,17 +9,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.view.View.OnClickListener;
+import android.widget.TextView;
 
+public class TicTacToeActivity extends ActionBarActivity implements View.OnClickListener {
 
-public class TicTacToeActivity extends ActionBarActivity {
-
+    // store buttons in an array
     private Button[] buttons;
+    private TextView information;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tic_tac_toe);
 
+        // set buttons to values
+        buttons = new Button[9];
         buttons[0] = (Button) findViewById(R.id.b0);
         buttons[1] = (Button) findViewById(R.id.b1);
         buttons[2] = (Button) findViewById(R.id.b2);
@@ -28,15 +36,22 @@ public class TicTacToeActivity extends ActionBarActivity {
         buttons[7] = (Button) findViewById(R.id.b7);
         buttons[8] = (Button) findViewById(R.id.b8);
 
+
     }
 
     // function to start game
+    private void startNewGame() {
+
+    }
 
     // function to see if it's your turn (check for lastMove / Status from server)
 
     // if you can move, set move based on location and player (send to server)
 
     // function to see if someone has won (local check)
+    public void checkResults() {
+
+    }
 
 
     @Override
@@ -57,5 +72,11 @@ public class TicTacToeActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    // parameter v stands for the view that was clicked
+    public void onClick(View v) {
+
     }
 }
