@@ -16,9 +16,8 @@ public class TicTacToeGame {
     private final int BOARD_SIZE = board.length;
 
 
+    // Constructor currently has no parameters.
     public TicTacToeGame() {
-//        // Seed the random number generator
-//        mRand = new Random();
     }
 
 
