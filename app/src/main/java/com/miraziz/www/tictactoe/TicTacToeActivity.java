@@ -14,9 +14,18 @@ import android.widget.TextView;
 
 public class TicTacToeActivity extends ActionBarActivity implements View.OnClickListener {
 
-    // store buttons in an array
+    // Store buttons and text from xml. (?)
     private Button[] buttons;
     private TextView information;
+
+    // Booleans.
+    private boolean gameOver;
+    private boolean myTurn;
+
+    private TicTacToeGame myGame;
+
+    public TicTacToeActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +86,8 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
     @Override
     // parameter v stands for the view that was clicked
     public void onClick(View v) {
+        // getID() returns identifier
+        // ex. if(v.getID() == R.id.b2) {...}
 
     }
 }

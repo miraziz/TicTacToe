@@ -1,7 +1,7 @@
+
 package com.miraziz.www.tictactoe;
 
 // Created by Divya on 1/6/2015.
-
 
 // The simple 3x3 version of TicTacToe.
 // Functions: clearBoard, isEmpty(slot), setMove(value, slot), checkForWinner
@@ -15,11 +15,20 @@ public class TacTacToeGame {
     private char board[] = {' ',' ',' ',' ',' ',' ',' ',' ',' '};
     private final int BOARD_SIZE = board.length;
 
+
+    public TacTacToeGame() {
+//        // Seed the random number generator
+//        mRand = new Random();
+    }
+
+
+    // Clears board values by setting them to ' '.
     public void clearBoard() {
         for(int i = 0; i <= BOARD_SIZE; i++) {
             board[i] = EMPTY_SLOT;
         }
     }
+
 
     // Checks to see if a given slot is available.
     public boolean isEmpty(int i) {
@@ -35,13 +44,10 @@ public class TacTacToeGame {
         if(0 <= slot && slot <= 8) {
             // Then make sure the valid slot is actually available.
             if(isEmpty(slot)) {
-
                 board[slot] = value;
-
                 //  TODO; requires GameService
                 //  currently only makes local change
                 //  make change to server
-
                 return true;
             }
         }
@@ -52,7 +58,6 @@ public class TacTacToeGame {
 
     // Returns 3 if Player A has won, 2 if Player B has won, 1 in case of a tie, and 0 otherwise.
     public int checkForWinner() {
-
         //  TODO;
         //  currently checks locally for a win to display immediate message
         //  make change to server
