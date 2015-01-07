@@ -53,6 +53,15 @@
         </TableRow>
     </TableLayout>
 
+    <Button
+        android:id="@+id/b9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:width="300dp"
+        android:height="50dp"
+        android:text="@string/reset_button"/>
+
     <TextView
         android:id="@+id/gameInformation"
         android:layout_width="fill_parent"
@@ -61,5 +70,14 @@
         android:textSize="20sp"
         android:textColor="#ffffffff"
         android:text="@string/game_information"/>
+
+    <TextView
+        android:id="@+id/otherInformation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textColor="#ffffffff"
+        android:text="@string/other_information"/>
 
 </LinearLayout>

@@ -23,7 +23,7 @@ public class TicTacToeGame {
 
     // Clears board values by setting them to ' '.
     public void clearBoard() {
-        for(int i = 0; i <= BOARD_SIZE; i++) {
+        for(int i = 0; i < BOARD_SIZE; i++) {
             board[i] = EMPTY_SLOT;
         }
     }
@@ -62,37 +62,37 @@ public class TicTacToeGame {
         //  make change to server
 
         // Check for horizontal wins.
-        for(int i = 0; i <= BOARD_SIZE; i += 3) {
+        for(int i = 0; i < BOARD_SIZE; i += 3) {
             if(PLAYER_A == board[i] && PLAYER_A == board[i+1] && PLAYER_A == board[i+2]) {
-                return 4;
+                return 3;
             }
             if (PLAYER_B == board[i] && PLAYER_B == board[i+1] && PLAYER_B == board[i+2]) {
-                return 3;
+                return 2;
             }
         }
 
         // Check for vertical wins.
         for(int i = 0; i < 3; i++) {
             if(PLAYER_A == board[i] && PLAYER_A == board[i+3] && PLAYER_A == board[i+6]) {
-                return 4;
+                return 3;
             }
             if (PLAYER_B == board[i] && PLAYER_B == board[i+3] && PLAYER_B == board[i+6]) {
-                return 3;
+                return 2;
             }
         }
 
         // Check for diagonal wins.
         if(PLAYER_A == board[0] && PLAYER_A == board[4] && PLAYER_A == board[8]) {
-            return 4;
+            return 3;
         }
         if(PLAYER_B == board[0] && PLAYER_B == board[4] && PLAYER_B == board[8]) {
-            return 3;
+            return 2;
         }
 
         // Check for a tie (board is full but no one has won).
         boolean check = true;
         int i = 0;
-        while(check) {
+        while(check && i < BOARD_SIZE) {
             if(board[i] == EMPTY_SLOT){
                 // Stops checking if an empty slot is detected.
                 check = false;
@@ -100,12 +100,11 @@ public class TicTacToeGame {
             i += 1;
         }
         if(check) {
-            return 2;
+            return 1;
         }
 
         // If no wins are detected:
         return 0;
-
     }
 
 }

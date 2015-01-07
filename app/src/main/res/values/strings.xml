@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">TicTacToe</string>
-    <string name="action_settings">Settings</string>
-    <string name="game_information">Information.</string>
+    <string name="app_name">
+        TicTacToe
+    </string>
+
+    <string name="action_settings">
+        Settings
+    </string>
+
+    <string name="game_information">
+        Information.
+    </string>
+
+    <string name ="other_information">
+        More info here (temp).
+    </string>
+
+    <string name="reset_button">
+        Start over.
+    </string>
 
 </resources>

@@ -24,7 +24,9 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
 
     // Store buttons and text from xml. (?)
     private Button[] buttons;
+    private Button reset;
     private TextView information;
+    private TextView information2;
 
     // Booleans.
     private boolean gameOver;
@@ -53,7 +55,10 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
         buttons[7] = (Button) findViewById(R.id.b7);
         buttons[8] = (Button) findViewById(R.id.b8);
 
+        reset = (Button) findViewById(R.id.b9);
+
         information = (TextView) findViewById(R.id.gameInformation);
+        information2 = (TextView) findViewById(R.id.otherInformation);
 
         myGame = new TicTacToeGame();
         startNewGame();
@@ -86,27 +91,27 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
     public void checkResults() {
 
         int result = myGame.checkForWinner();
+        information2.setText(Integer.toString(result));
 
         if(result == 0) {
             return;
         }
-
         if(result == 3) {
             information.setText("Player 1 wins.");
             gameOver = true;
         }
-        else if(result == 2) {
+        if(result == 2) {
             information.setText("Player 2 wins.");
             gameOver = true;
         }
-        else if(result == 1) {
+        if(result == 1) {
             information.setText("It's a tie.");
             gameOver = true;
         }
-        else {
-            information.setText("Something has gone wrong.");
-            gameOver = true;
-        }
+        //else {
+        //    information.setText("Something has gone wrong.");
+        //    gameOver = true;
+        //}
 
     }
 
@@ -158,7 +163,12 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
         Button clicked = (Button) v;
         int move = -1;
 
-        if(clicked.isEnabled() && !gameOver) {
+        if(clicked.isEnabled()/*&& !gameOver*/) {
+
+            if(reset.getId() == clicked.getId()) {
+                startNewGame();
+            }
+
             for(int i = 0; i < buttons.length; i++) {
                 if(buttons[i].getId() == clicked.getId()) {
                     move = i;
@@ -170,6 +180,7 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
         if(move != -1) {
             // This setMove is DIFFERENT from myGame.setMove.
             setMove(alternating, move);
+            checkResults();
             if(alternating == 'X') {
                 alternating = 'O';
                 information.setText("Go, Player Two.");
@@ -181,4 +192,7 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
         }
 
     }
+
+
+
 }
