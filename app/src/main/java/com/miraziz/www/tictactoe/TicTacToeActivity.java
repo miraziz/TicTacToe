@@ -9,15 +9,18 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import java.util.Timer;
 
 public class TicTacToeActivity extends ActionBarActivity implements View.OnClickListener {
 
     // To be honest, I don't understand what these lines are saying.
     private static TicTacToeActivity _instance;
+
     public static TicTacToeActivity getInstance() {
         return _instance;
     }
+
+    // Create the TicTacToeGame object.
+    private TicTacToeGame myGame;
 
     // Store buttons and text from xml. (?)
     private Button[] buttons;
@@ -27,17 +30,14 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
     private boolean gameOver;
     private boolean myTurn;
 
+    // To alternate between 'X' and 'O'.
     private char alternating;
-
-    // Create TicTacToeGame object.
-    private TicTacToeGame myGame;
 
     // public TicTacToeActivity() {
     // }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tic_tac_toe);
 
@@ -74,7 +74,7 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
             buttons[i].setOnClickListener(this);
         }
 
-        information.setText("Player 1 (you) will go first.");
+        information.setText("Player 1 will go first.");
 
     }
 
@@ -82,7 +82,7 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
 
     // if you can move, set move based on location and player (send to server)
 
-    // function to see if someone has won (local check)
+    // Function to see if someone has won (local check).
     public void checkResults() {
 
         int result = myGame.checkForWinner();
@@ -93,15 +93,19 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
 
         if(result == 3) {
             information.setText("Player 1 wins.");
+            gameOver = true;
         }
         else if(result == 2) {
             information.setText("Player 2 wins.");
+            gameOver = true;
         }
         else if(result == 1) {
             information.setText("It's a tie.");
+            gameOver = true;
         }
         else {
             information.setText("Something has gone wrong.");
+            gameOver = true;
         }
 
     }
@@ -164,10 +168,8 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
         }
 
         if(move != -1) {
-
             // This setMove is DIFFERENT from myGame.setMove.
             setMove(alternating, move);
-
             if(alternating == 'X') {
                 alternating = 'O';
                 information.setText("Go, Player Two.");
@@ -175,7 +177,6 @@ public class TicTacToeActivity extends ActionBarActivity implements View.OnClick
                 alternating = 'X';
                 information.setText("Go, Player One.");
             }
-
             checkResults();
         }
 
