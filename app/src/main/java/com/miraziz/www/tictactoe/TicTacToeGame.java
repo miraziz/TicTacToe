@@ -5,7 +5,7 @@ package com.miraziz.www.tictactoe;
 
 // The simple 3x3 version of TicTacToe.
 // Functions: clearBoard, isEmpty(slot), setMove(value, slot), checkForWinner
-public class TacTacToeGame {
+public class TicTacToeGame {
 
     public static final char PLAYER_A = 'X';
     public static final char PLAYER_B = 'O';
@@ -16,7 +16,7 @@ public class TacTacToeGame {
     private final int BOARD_SIZE = board.length;
 
 
-    public TacTacToeGame() {
+    public TicTacToeGame() {
 //        // Seed the random number generator
 //        mRand = new Random();
     }
